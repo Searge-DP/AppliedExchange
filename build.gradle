@@ -17,6 +17,13 @@ buildscript {
 
 apply plugin: 'forge'
 
+repositories {
+    maven {
+        name = "Modmuss50"
+        url = "http://modmuss50.me/maven/"
+    }
+}
+
 version = "1.0.0"
 group= "modmuss50.appiledExchange" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "AppliedExchange"
