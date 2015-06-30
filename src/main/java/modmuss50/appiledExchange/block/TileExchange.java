@@ -11,12 +11,12 @@ public class TileExchange extends AENetworkTile {
 
 	MEInventoryHandler handler = null;
 
-	Inventory inventory;
+	public Inventory inventory;
 
 	public TileExchange() {
-		inventory = new Inventory(1, "tile", 64);
+		inventory = new Inventory(1, "TileExchange", 64);
 		inventory.setInventorySlotContents(0, new ItemStack(Items.diamond, 5));
 	}
-
+	
 
 }
