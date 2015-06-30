@@ -5,10 +5,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import techreborn.client.SlotOutput;
+import techreborn.client.container.TechRebornContainer;
 import techreborn.tiles.TileAlloyFurnace;
 
 
-public class ContainerExchange extends Container {
+public class ContainerExchange extends TechRebornContainer {
 	EntityPlayer player;
 
 	TileExchange tile;
@@ -28,7 +29,7 @@ public class ContainerExchange extends Container {
 		this.player = player;
 
 		//book
-		this.addSlotToContainer(new Slot(tileExchange.inventory, 0, 47, 17));
+		this.addSlotToContainer(new Slot(tileExchange.inventory, 0, 80, 36));
 
 
 		int i;

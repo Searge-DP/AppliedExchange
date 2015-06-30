@@ -1,5 +1,6 @@
 package modmuss50.appiledExchange;
 
+import com.pahimar.ee3.init.ModItems;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -11,6 +12,8 @@ import modmuss50.appiledExchange.block.TileExchange;
 import modmuss50.appiledExchange.client.GuiHander;
 import modmuss50.appiledExchange.lib.ModInfo;
 import net.minecraft.block.Block;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 @Mod(name = ModInfo.MOD_NAME, modid = ModInfo.MOD_ID, version = ModInfo.MOD_VERSION)
 public class AppliedExchange {
@@ -32,6 +35,7 @@ public class AppliedExchange {
 		GameRegistry.registerBlock(exchangeBlock, "ExchangeBlock");
 		GameRegistry.registerTileEntity(TileExchange.class, "tileExchange");
 		NetworkRegistry.INSTANCE.registerGuiHandler(INSTANCE, new GuiHander());
+		GameRegistry.addShapelessRecipe(new ItemStack(exchangeBlock), new ItemStack(ModItems.alchemicalTome), new ItemStack(Items.nether_star));
 	}
 
 	@Mod.EventHandler

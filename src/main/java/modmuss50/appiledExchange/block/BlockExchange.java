@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 public class BlockExchange extends BlockContainer {
 	public BlockExchange() {
 		super(Material.iron);
+		setBlockName("BlockExchange");
 	}
 
 	@Override

@@ -1,8 +1,5 @@
 package modmuss50.appiledExchange.block;
 
-
-import appeng.me.storage.MEInventoryHandler;
-import appeng.tile.grid.AENetworkTile;
 import com.pahimar.ee3.api.knowledge.TransmutationKnowledgeRegistryProxy;
 import com.pahimar.ee3.item.ItemAlchemicalTome;
 import com.pahimar.ee3.util.ItemHelper;
@@ -10,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import techreborn.util.Inventory;
 
@@ -18,28 +16,15 @@ import java.util.Set;
 
 public class TileExchange extends TileEntity implements IInventory {
 
-	MEInventoryHandler handler = null;
-
 	public Inventory inventory;
 
 	public TileExchange() {
 		inventory = new Inventory(1, "TileExchange", 64);
-		inventory.setInventorySlotContents(0, new ItemStack(Items.diamond, 5));
 	}
 
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
-		ItemStack book = inventory.getStackInSlot(0);
-		if(book != null){
-			if(book.getItem() instanceof ItemAlchemicalTome){
-				if(ItemHelper.hasOwner(book)){
-					String owner = ItemHelper.getOwnerName(book);
-					Set<ItemStack> stacks = TransmutationKnowledgeRegistryProxy.getPlayerKnownTransmutations(ItemHelper.getOwnerUUID(book));
-
-				}
-			}
-		}
 	}
 
 	@Override
@@ -129,5 +114,15 @@ public class TileExchange extends TileEntity implements IInventory {
 	@Override
 	public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
 		return false;
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tagCompound) {
+		inventory.readFromNBT(tagCompound);
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound tagCompound) {
+		inventory.writeToNBT(tagCompound);
 	}
 }
